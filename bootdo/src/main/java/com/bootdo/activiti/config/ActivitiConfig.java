@@ -16,7 +16,8 @@ public class ActivitiConfig {
     public ProcessEngineConfiguration processEngineConfiguration(DataSource dataSource, PlatformTransactionManager transactionManager){
         SpringProcessEngineConfiguration processEngineConfiguration = new SpringProcessEngineConfiguration();
         processEngineConfiguration.setDataSource(dataSource);
-        processEngineConfiguration.setDatabaseSchemaUpdate("true");
+        //自动建表开关
+        processEngineConfiguration.setDatabaseSchemaUpdate("false");
         processEngineConfiguration.setDatabaseType("mysql");
 
         processEngineConfiguration.setTransactionManager(transactionManager);
