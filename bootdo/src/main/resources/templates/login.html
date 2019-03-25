@@ -60,7 +60,7 @@
                 <input type="password" name="password"
                        class="form-control pword m-b" th:value="${password}"/>
                 <a id="login" class="btn btn-login btn-block">登录</a>
-                <div class="row">
+                <div class="row" id="verifyNo" style="display: none">
                     <div class="col-xs-6 pull_left">
                         <div class="form-group">
                             <input class="form-control" type="tel" name="verify" id="verify" placeholder="请输入验证码" maxlength="4">
@@ -135,7 +135,6 @@
             login();
         }
     });
-
     function login() {
         $.ajax({
             type: "POST",
@@ -148,6 +147,7 @@
                     });
                     parent.location.href = '/index';
                 } else {
+                    $("#verifyNo").show();
                     layer.msg(r.msg);
                 }
             },
