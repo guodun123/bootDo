@@ -108,7 +108,7 @@ public class LoginController extends BaseController {
         return "redirect:/login";
     }
 
-    @GetMapping("/main")
+    @GetMapping("/main")//TODO 重做首页
     String main() {
         return "main";
     }

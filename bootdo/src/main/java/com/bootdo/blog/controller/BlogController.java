@@ -23,11 +23,6 @@ public class BlogController {
 	@Autowired
     ContentService bContentService;
 
-	@GetMapping()
-	String blog() {
-		return "blog/index/main";
-	}
-
 	@ResponseBody
 	@GetMapping("/open/list")
 	public PageUtils opentList(@RequestParam Map<String, Object> params) {
