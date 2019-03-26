@@ -38,9 +38,9 @@ function validateRule() {
 			author : {
 				required : true
 			},
-			email : {
+			/*email : {
 				required : true,
-			},
+			},*/
 			package : {
 				required : true,
 			},
@@ -51,9 +51,9 @@ function validateRule() {
 			author : {
 				required : icon + "请输入作者"
 			},
-			email : {
+			/*email : {
 				required : icon + "请输入email",
-			},
+			},*/
 			package : {
 				required : icon + "请输入包名",
 			},

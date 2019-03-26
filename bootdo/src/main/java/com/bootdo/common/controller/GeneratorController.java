@@ -84,7 +84,7 @@ public class GeneratorController {
 		try {
 			PropertiesConfiguration conf = new PropertiesConfiguration("generator.properties");
 			conf.setProperty("author", map.get("author"));
-			conf.setProperty("email", map.get("email"));
+			//conf.setProperty("email", map.get("email"));
 			conf.setProperty("package", map.get("package"));
 			conf.setProperty("autoRemovePre", map.get("autoRemovePre"));
 			conf.setProperty("tablePrefix", map.get("tablePrefix"));
