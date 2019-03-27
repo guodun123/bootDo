@@ -1,10 +1,15 @@
 package com.bootdo.common.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * 列的属性
  * 
  * 
  */
+@Getter
+@Setter
 public class ColumnDO {
 	// 列名
 	private String columnName;
@@ -21,62 +26,6 @@ public class ColumnDO {
 	private String attrType;
 	// auto_increment
 	private String extra;
-
-	public String getColumnName() {
-		return columnName;
-	}
-
-	public void setColumnName(String columnName) {
-		this.columnName = columnName;
-	}
-
-	public String getDataType() {
-		return dataType;
-	}
-
-	public void setDataType(String dataType) {
-		this.dataType = dataType;
-	}
-
-	public String getComments() {
-		return comments;
-	}
-
-	public void setComments(String comments) {
-		this.comments = comments;
-	}
-
-	public String getAttrname() {
-		return attrname;
-	}
-
-	public void setAttrname(String attrname) {
-		this.attrname = attrname;
-	}
-
-	public String getAttrName() {
-		return attrName;
-	}
-
-	public void setAttrName(String attrName) {
-		this.attrName = attrName;
-	}
-
-	public String getAttrType() {
-		return attrType;
-	}
-
-	public void setAttrType(String attrType) {
-		this.attrType = attrType;
-	}
-
-	public String getExtra() {
-		return extra;
-	}
-
-	public void setExtra(String extra) {
-		this.extra = extra;
-	}
 
 	@Override
 	public String toString() {

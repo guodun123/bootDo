@@ -9,14 +9,13 @@ import java.util.Map;
  * ${comments}
  * 
  * @author ${author}
- * @email ${email}
  * @date ${datetime}
  */
 public interface ${className}Service {
 	
-	${className}DO get(${pk.attrType} ${pk.attrname});
+	${className}DO getById(${pk.attrType} ${pk.attrname});
 	
-	List<${className}DO> list(Map<String, Object> map);
+	List<${className}DO> listByMap(Map<String, Object> map);
 	
 	int count(Map<String, Object> map);
 	
@@ -25,6 +24,6 @@ public interface ${className}Service {
 	int update(${className}DO ${classname});
 	
 	int remove(${pk.attrType} ${pk.attrname});
-	
+
 	int batchRemove(${pk.attrType}[] ${pk.attrname}s);
 }

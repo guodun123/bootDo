@@ -18,13 +18,13 @@ public class ${className}ServiceImpl implements ${className}Service {
 	private ${className}Dao ${classname}Dao;
 	
 	@Override
-	public ${className}DO get(${pk.attrType} ${pk.attrname}){
-		return ${classname}Dao.get(${pk.attrname});
+	public ${className}DO getById(${pk.attrType} ${pk.attrname}){
+		return ${classname}Dao.getById(${pk.attrname});
 	}
 	
 	@Override
-	public List<${className}DO> list(Map<String, Object> map){
-		return ${classname}Dao.list(map);
+	public List<${className}DO> listByMap(Map<String, Object> map){
+		return ${classname}Dao.listByMap(map);
 	}
 	
 	@Override
@@ -34,7 +34,7 @@ public class ${className}ServiceImpl implements ${className}Service {
 	
 	@Override
 	public int save(${className}DO ${classname}){
-		return ${classname}Dao.save(${classname});
+		return ${classname}Dao.insert(${classname});
 	}
 	
 	@Override
@@ -44,7 +44,7 @@ public class ${className}ServiceImpl implements ${className}Service {
 	
 	@Override
 	public int remove(${pk.attrType} ${pk.attrname}){
-		return ${classname}Dao.remove(${pk.attrname});
+		return this.batchRemove(new Integer[]{${pk.attrname}});
 	}
 	
 	@Override
