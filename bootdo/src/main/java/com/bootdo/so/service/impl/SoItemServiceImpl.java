@@ -3,6 +3,7 @@ package com.bootdo.so.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -34,6 +35,7 @@ public class SoItemServiceImpl implements SoItemService {
 	
 	@Override
 	public int save(SoItemDO soItem){
+		soItem.setCreateTime(new Date());
 		return soItemDao.save(soItem);
 	}
 	
