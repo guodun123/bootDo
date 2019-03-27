@@ -44,25 +44,24 @@
     <insert id="insert" parameterType="${package}.domain.${className}DO"#if($pk.extra == 'auto_increment')
             useGeneratedKeys="true" keyProperty="$pk.attrname"#end>
         insert into ${tableName}
-        (
-        #foreach($column in $columns)
-            #if($column.columnName != $pk.columnName || $pk.extra != 'auto_increment')
-                <if test="$column.attrname != null and $column.attrname.trim() != ''">
-                    `$column.columnName`#if($velocityCount != $columns.size()), #end
-                </if>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            #foreach($column in $columns)
+                #if($column.columnName != $pk.columnName || $pk.extra != 'auto_increment')
+                    <if test="$column.attrname != null and $column.attrname.trim() != ''">
+                        `$column.columnName`#if($velocityCount != $columns.size()), #end
+                    </if>
+                #end
             #end
-        #end
-        )
-        values
-        (
-        #foreach($column in $columns)
-            #if($column.columnName != $pk.columnName || $pk.extra != 'auto_increment')
-                <if test="$column.attrname != null and $column.attrname.trim() != ''">
-                    #{$column.attrname}#if($velocityCount != $columns.size()), #end
-                </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            #foreach($column in $columns)
+                #if($column.columnName != $pk.columnName || $pk.extra != 'auto_increment')
+                    <if test="$column.attrname != null and $column.attrname.trim() != ''">
+                        #{$column.attrname}#if($velocityCount != $columns.size()), #end
+                    </if>
+                #end
             #end
-        #end
-        )
+        </trim>
     </insert>
 
     <update id="update" parameterType="${package}.domain.${className}DO">
@@ -70,7 +69,8 @@
         <set>
             #foreach($column in $columns)
                 #if($column.columnName != $pk.columnName)
-                    <if test="$column.attrname != null and  $column.attrname.trim() != ''"  >`$column.columnName` = #{$column.attrname
+                    <if test="$column.attrname != null and  $column.attrname.trim() != ''">`$column.columnName` =
+                        #{$column.attrname
                         }#if($velocityCount != $columns.size()), #end</if>
                 #end
             #end

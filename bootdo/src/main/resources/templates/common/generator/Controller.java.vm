@@ -55,7 +55,7 @@ public class ${className}Controller {
 	@GetMapping("/add")
 	@RequiresPermissions("${pathName}:${classname}:add")
 	String add(){
-	    return "${pathName}/${classname}/add";
+	    return "${pathName}/${classname}/${classname}_add";
 	}
 
 	@GetMapping("/edit/{${pk.attrname}}")
@@ -63,7 +63,7 @@ public class ${className}Controller {
 	String edit(@PathVariable("${pk.attrname}") ${pk.attrType} ${pk.attrname},Model model){
 		${className}DO ${classname} = ${classname}Service.getById(${pk.attrname});
 		model.addAttribute("${classname}", ${classname});
-	    return "${pathName}/${classname}/edit";
+	    return "${pathName}/${classname}/${classname}_edit";
 	}
 	
 	/**
