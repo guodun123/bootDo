@@ -1,7 +1,7 @@
 package com.bootdo.system.service;
 
-import com.bootdo.common.domain.Tree;
-import com.bootdo.system.domain.DeptDO;
+import com.bootdo.common.model.Tree;
+import com.bootdo.system.model.DeptDO;
 
 import java.util.List;
 import java.util.Map;

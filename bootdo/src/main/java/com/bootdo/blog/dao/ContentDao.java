@@ -1,6 +1,6 @@
 package com.bootdo.blog.dao;
 
-import com.bootdo.blog.domain.ContentDO;
+import com.bootdo.blog.model.ContentDO;
 
 import java.util.List;
 import java.util.Map;

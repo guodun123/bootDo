@@ -1,6 +1,6 @@
 package com.bootdo.system.dao;
 
-import com.bootdo.system.domain.UserRoleDO;
+import com.bootdo.system.model.UserRoleDO;
 
 import java.util.List;
 import java.util.Map;

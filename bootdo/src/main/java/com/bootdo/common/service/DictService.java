@@ -1,7 +1,7 @@
 package com.bootdo.common.service;
 
-import com.bootdo.common.domain.DictDO;
-import com.bootdo.system.domain.UserDO;
+import com.bootdo.common.model.DictDO;
+import com.bootdo.system.model.UserDO;
 
 import java.util.List;
 import java.util.Map;

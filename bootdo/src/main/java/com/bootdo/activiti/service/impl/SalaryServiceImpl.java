@@ -1,8 +1,6 @@
 package com.bootdo.activiti.service.impl;
 
 import com.bootdo.activiti.config.ActivitiConstant;
-import com.bootdo.common.utils.StringUtils;
-import org.activiti.engine.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +10,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import com.bootdo.activiti.dao.SalaryDao;
-import com.bootdo.activiti.domain.SalaryDO;
+import com.bootdo.activiti.model.SalaryDO;
 import com.bootdo.activiti.service.SalaryService;
 import org.springframework.transaction.annotation.Transactional;
 

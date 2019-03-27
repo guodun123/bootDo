@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.bootdo.oa.dao.NotifyRecordDao;
-import com.bootdo.oa.domain.NotifyRecordDO;
+import com.bootdo.oa.model.NotifyRecordDO;
 import com.bootdo.oa.service.NotifyRecordService;
 
 

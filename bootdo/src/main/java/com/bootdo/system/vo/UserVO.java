@@ -1,6 +1,6 @@
 package com.bootdo.system.vo;
 
-import com.bootdo.system.domain.UserDO;
+import com.bootdo.system.model.UserDO;
 
 /**
  * @author gaoyuzhe

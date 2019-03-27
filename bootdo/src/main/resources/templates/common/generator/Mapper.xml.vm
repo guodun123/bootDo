@@ -3,11 +3,11 @@
 
 <mapper namespace="${package}.dao.${className}Dao">
 
-    <select id="get" resultType="${package}.domain.${className}DO">
+    <select id="get" resultType="${package}.model.${className}DO">
 		select #foreach($column in $columns)`$column.columnName`#if($velocityCount != $columns.size()),#end#end from ${tableName} where ${pk.columnName} = #{value}
 	</select>
 
-    <select id="listByMap" resultType="${package}.domain.${className}DO">
+    <select id="listByMap" resultType="${package}.model.${className}DO">
         select #foreach($column in $columns)`$column.columnName`#if($velocityCount != $columns.size()),#end#end
         from ${tableName}
         <where>
@@ -41,7 +41,7 @@
         </where>
     </select>
 
-    <insert id="insert" parameterType="${package}.domain.${className}DO"#if($pk.extra == 'auto_increment')
+    <insert id="insert" parameterType="${package}.model.${className}DO"#if($pk.extra == 'auto_increment')
             useGeneratedKeys="true" keyProperty="$pk.attrname"#end>
         insert into ${tableName}
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -64,7 +64,7 @@
         </trim>
     </insert>
 
-    <update id="update" parameterType="${package}.domain.${className}DO">
+    <update id="update" parameterType="${package}.model.${className}DO">
         update ${tableName}
         <set>
             #foreach($column in $columns)

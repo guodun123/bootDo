@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.bootdo.system.domain.RoleDO;
+import com.bootdo.system.model.RoleDO;
 
 @Service
 public interface RoleService {

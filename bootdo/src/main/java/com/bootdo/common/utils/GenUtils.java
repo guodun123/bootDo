@@ -2,8 +2,8 @@ package com.bootdo.common.utils;
 
 
 import com.bootdo.common.config.Constant;
-import com.bootdo.common.domain.ColumnDO;
-import com.bootdo.common.domain.TableDO;
+import com.bootdo.common.model.ColumnDO;
+import com.bootdo.common.model.TableDO;
 import org.apache.commons.configuration.Configuration;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
@@ -29,7 +29,7 @@ public class GenUtils {
 
     public static List<String> getTemplates() {
         List<String> templates = new ArrayList<String>();
-        templates.add("templates/common/generator/domain.java.vm");
+        templates.add("templates/common/generator/model.java.vm");
         templates.add("templates/common/generator/Dao.java.vm");
         //templates.add("templates/common/generator/Mapper.java.vm");
         templates.add("templates/common/generator/Mapper.xml.vm");
@@ -182,8 +182,8 @@ public class GenUtils {
             packagePath += packageName.replace(".", File.separator) + File.separator;
         }
 
-        if (template.contains("domain.java.vm")) {
-            return packagePath + "domain" + File.separator + className + "DO.java" ;
+        if (template.contains("model.java.vm")) {
+            return packagePath + "model" + File.separator + className + "DO.java" ;
         }
 
         if (template.contains("Dao.java.vm")) {

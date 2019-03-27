@@ -1365,7 +1365,7 @@ layui.define(function(exports){
       html:   htmlType,
       text:   'text/plain'
     },
-    // Whether the request is to another domain
+    // Whether the request is to another model
     crossDomain: false,
     // Default timeout
     timeout: 0,

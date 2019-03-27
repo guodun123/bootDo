@@ -1,9 +1,7 @@
 package com.bootdo.oa.service.impl;
 
-import com.bootdo.system.domain.UserDO;
+import com.bootdo.system.model.UserDO;
 import com.bootdo.system.service.SessionService;
-import org.apache.shiro.session.Session;
-import org.apache.shiro.session.mgt.eis.SessionDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
@@ -19,9 +17,9 @@ import com.bootdo.common.utils.DateUtils;
 import com.bootdo.common.utils.PageUtils;
 import com.bootdo.oa.dao.NotifyDao;
 import com.bootdo.oa.dao.NotifyRecordDao;
-import com.bootdo.oa.domain.NotifyDO;
-import com.bootdo.oa.domain.NotifyDTO;
-import com.bootdo.oa.domain.NotifyRecordDO;
+import com.bootdo.oa.model.NotifyDO;
+import com.bootdo.oa.model.NotifyDTO;
+import com.bootdo.oa.model.NotifyRecordDO;
 import com.bootdo.oa.service.NotifyService;
 import com.bootdo.system.dao.UserDao;
 

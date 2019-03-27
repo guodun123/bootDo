@@ -1,7 +1,7 @@
 package com.bootdo.common.utils;
 
-import com.bootdo.common.domain.ScheduleJob;
-import com.bootdo.common.domain.TaskDO;
+import com.bootdo.common.model.ScheduleJob;
+import com.bootdo.common.model.TaskDO;
 
 public class ScheduleJobUtils {
 	public static ScheduleJob entityToData(TaskDO scheduleJobEntity) {

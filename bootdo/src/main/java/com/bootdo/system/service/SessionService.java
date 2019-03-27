@@ -1,15 +1,13 @@
 package com.bootdo.system.service;
 
-import java.io.PrintStream;
-import java.security.Principal;
 import java.util.Collection;
 import java.util.List;
 
-import com.bootdo.system.domain.UserDO;
+import com.bootdo.system.model.UserDO;
 import org.apache.shiro.session.Session;
 import org.springframework.stereotype.Service;
 
-import com.bootdo.system.domain.UserOnline;
+import com.bootdo.system.model.UserOnline;
 
 @Service
 public interface SessionService {

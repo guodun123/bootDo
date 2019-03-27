@@ -1,6 +1,6 @@
 package com.bootdo.system.dao;
 
-import com.bootdo.system.domain.MenuDO;
+import com.bootdo.system.model.MenuDO;
 
 import java.util.List;
 import java.util.Map;

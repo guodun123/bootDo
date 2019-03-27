@@ -1,6 +1,6 @@
 package com.bootdo.activiti.dao;
 
-import com.bootdo.activiti.domain.SalaryDO;
+import com.bootdo.activiti.model.SalaryDO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

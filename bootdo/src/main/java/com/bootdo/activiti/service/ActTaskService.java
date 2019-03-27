@@ -1,6 +1,6 @@
 package com.bootdo.activiti.service;
 
-import com.bootdo.activiti.domain.ActivitiDO;
+import com.bootdo.activiti.model.ActivitiDO;
 
 import java.io.InputStream;
 import java.util.List;

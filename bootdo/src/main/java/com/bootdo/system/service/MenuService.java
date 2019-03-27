@@ -6,8 +6,8 @@ import java.util.Set;
 
 import org.springframework.stereotype.Service;
 
-import com.bootdo.common.domain.Tree;
-import com.bootdo.system.domain.MenuDO;
+import com.bootdo.common.model.Tree;
+import com.bootdo.system.model.MenuDO;
 
 @Service
 public interface MenuService {

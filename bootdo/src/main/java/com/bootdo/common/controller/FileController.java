@@ -1,7 +1,7 @@
 package com.bootdo.common.controller;
 
 import com.bootdo.common.config.BootdoConfig;
-import com.bootdo.common.domain.FileDO;
+import com.bootdo.common.model.FileDO;
 import com.bootdo.common.service.FileService;
 import com.bootdo.common.utils.*;
 import javax.servlet.http.HttpServletRequest;

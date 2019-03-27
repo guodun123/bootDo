@@ -3,13 +3,13 @@
 
 <mapper namespace="com.bootdo.system.dao.RoleDao">
 
-	<select id="get" resultType="com.bootdo.system.domain.RoleDO">
+	<select id="get" resultType="com.bootdo.system.model.RoleDO">
 		select
 		`role_id`,`role_name`,`role_sign`,`remark`,`user_id_create`,`gmt_create`,`gmt_modified`
 		from sys_role where role_id = #{value}
 	</select>
 
-	<select id="list" resultType="com.bootdo.system.domain.RoleDO">
+	<select id="list" resultType="com.bootdo.system.model.RoleDO">
 		select
 		`role_id`,`role_name`,`role_sign`,`remark`,`user_id_create`,`gmt_create`,`gmt_modified`
 		from sys_role
@@ -48,7 +48,7 @@
 		</where>
 	</select>
 
-	<insert id="save" parameterType="com.bootdo.system.domain.RoleDO"
+	<insert id="save" parameterType="com.bootdo.system.model.RoleDO"
 		useGeneratedKeys="true" keyProperty="roleId">
 		insert into sys_role
 		(
@@ -70,7 +70,7 @@
 		)
 	</insert>
 
-	<update id="update" parameterType="com.bootdo.system.domain.RoleDO">
+	<update id="update" parameterType="com.bootdo.system.model.RoleDO">
 		update sys_role
 		<set>
 			<if test="roleName != null">`role_name` = #{roleName}, </if>

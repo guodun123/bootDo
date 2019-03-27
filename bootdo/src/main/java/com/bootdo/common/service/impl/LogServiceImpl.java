@@ -6,8 +6,8 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import com.bootdo.common.dao.LogDao;
-import com.bootdo.common.domain.LogDO;
-import com.bootdo.common.domain.PageDO;
+import com.bootdo.common.model.LogDO;
+import com.bootdo.common.model.PageDO;
 import com.bootdo.common.service.LogService;
 import com.bootdo.common.utils.Query;
 

@@ -1,6 +1,5 @@
 package com.bootdo.system.controller;
 
-import java.security.Principal;
 import java.util.Collection;
 import java.util.List;
 
@@ -14,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bootdo.common.utils.R;
-import com.bootdo.system.domain.UserOnline;
+import com.bootdo.system.model.UserOnline;
 import com.bootdo.system.service.SessionService;
 
 @RequestMapping("/sys/online")

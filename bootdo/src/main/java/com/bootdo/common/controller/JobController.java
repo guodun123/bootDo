@@ -1,7 +1,7 @@
 package com.bootdo.common.controller;
 
 import com.bootdo.common.config.Constant;
-import com.bootdo.common.domain.TaskDO;
+import com.bootdo.common.model.TaskDO;
 import com.bootdo.common.service.JobService;
 import com.bootdo.common.utils.PageUtils;
 import com.bootdo.common.utils.Query;

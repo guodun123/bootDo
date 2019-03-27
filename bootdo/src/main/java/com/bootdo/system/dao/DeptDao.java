@@ -1,6 +1,6 @@
 package com.bootdo.system.dao;
 
-import com.bootdo.system.domain.DeptDO;
+import com.bootdo.system.model.DeptDO;
 
 import java.util.List;
 import java.util.Map;

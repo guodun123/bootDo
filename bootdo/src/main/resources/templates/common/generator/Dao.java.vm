@@ -1,12 +1,8 @@
 package ${package}.dao;
 
-import ${package}.domain.${className}DO;
-
-import java.util.List;
-import java.util.Map;
+import ${package}.model.${className}DO;
 
 import com.bootdo.common.dao.BaseDao;
-import com.bootdo.common.domain.BaseDO;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

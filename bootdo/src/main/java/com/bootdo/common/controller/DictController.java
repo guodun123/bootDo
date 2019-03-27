@@ -1,7 +1,7 @@
 package com.bootdo.common.controller;
 
 import com.bootdo.common.config.Constant;
-import com.bootdo.common.domain.DictDO;
+import com.bootdo.common.model.DictDO;
 import com.bootdo.common.service.DictService;
 import com.bootdo.common.utils.PageUtils;
 import com.bootdo.common.utils.Query;

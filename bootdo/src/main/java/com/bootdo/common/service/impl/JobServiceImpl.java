@@ -2,8 +2,8 @@ package com.bootdo.common.service.impl;
 
 import com.bootdo.common.config.Constant;
 import com.bootdo.common.dao.TaskDao;
-import com.bootdo.common.domain.ScheduleJob;
-import com.bootdo.common.domain.TaskDO;
+import com.bootdo.common.model.ScheduleJob;
+import com.bootdo.common.model.TaskDO;
 import com.bootdo.common.quartz.utils.QuartzManager;
 import com.bootdo.common.service.JobService;
 import com.bootdo.common.utils.ScheduleJobUtils;

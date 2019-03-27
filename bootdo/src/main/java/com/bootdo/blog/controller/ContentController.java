@@ -1,6 +1,6 @@
 package com.bootdo.blog.controller;
 
-import com.bootdo.blog.domain.ContentDO;
+import com.bootdo.blog.model.ContentDO;
 import com.bootdo.blog.service.ContentService;
 import com.bootdo.common.config.Constant;
 import com.bootdo.common.controller.BaseController;

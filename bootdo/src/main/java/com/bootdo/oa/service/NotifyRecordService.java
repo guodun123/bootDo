@@ -1,6 +1,6 @@
 package com.bootdo.oa.service;
 
-import com.bootdo.oa.domain.NotifyRecordDO;
+import com.bootdo.oa.model.NotifyRecordDO;
 
 import java.util.List;
 import java.util.Map;

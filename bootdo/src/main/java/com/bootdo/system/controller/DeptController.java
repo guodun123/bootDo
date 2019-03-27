@@ -2,9 +2,9 @@ package com.bootdo.system.controller;
 
 import com.bootdo.common.config.Constant;
 import com.bootdo.common.controller.BaseController;
-import com.bootdo.common.domain.Tree;
+import com.bootdo.common.model.Tree;
 import com.bootdo.common.utils.R;
-import com.bootdo.system.domain.DeptDO;
+import com.bootdo.system.model.DeptDO;
 import com.bootdo.system.service.DeptService;
 import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.authz.annotation.RequiresPermissions;

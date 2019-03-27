@@ -1,6 +1,6 @@
 package com.bootdo.activiti.service;
 
-import com.bootdo.activiti.domain.SalaryDO;
+import com.bootdo.activiti.model.SalaryDO;
 
 import java.util.List;
 import java.util.Map;

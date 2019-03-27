@@ -1,0 +1,24 @@
+package ${package}.model;
+
+import com.bootdo.common.model.BaseDO;
+import lombok.Getter;
+import lombok.Setter;
+
+#if(${hasBigDecimal})
+#end
+
+/**
+ * ${comments}
+ * 表名：${tableName}
+ * @author ${author}
+ * @date ${datetime}
+ */
+@Getter
+@Setter
+public class ${className}DO extends BaseDO {
+
+#foreach ($column in $columns)
+	//$column.comments
+	private $column.attrType $column.attrname;
+#end
+}

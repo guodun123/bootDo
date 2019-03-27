@@ -1,6 +1,6 @@
 package com.bootdo.common.dao;
 
-import com.bootdo.common.domain.TaskDO;
+import com.bootdo.common.model.TaskDO;
 
 import java.util.List;
 import java.util.Map;

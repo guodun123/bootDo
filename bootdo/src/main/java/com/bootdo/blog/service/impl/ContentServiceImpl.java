@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.bootdo.blog.dao.ContentDao;
-import com.bootdo.blog.domain.ContentDO;
+import com.bootdo.blog.model.ContentDO;
 import com.bootdo.blog.service.ContentService;
 
 

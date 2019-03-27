@@ -7,9 +7,9 @@ import java.util.Set;
 import com.bootdo.system.vo.UserVO;
 import org.springframework.stereotype.Service;
 
-import com.bootdo.common.domain.Tree;
-import com.bootdo.system.domain.DeptDO;
-import com.bootdo.system.domain.UserDO;
+import com.bootdo.common.model.Tree;
+import com.bootdo.system.model.DeptDO;
+import com.bootdo.system.model.UserDO;
 import org.springframework.web.multipart.MultipartFile;
 
 @Service

@@ -1,6 +1,6 @@
 package com.bootdo.activiti.controller;
 
-import com.bootdo.activiti.domain.SalaryDO;
+import com.bootdo.activiti.model.SalaryDO;
 import com.bootdo.activiti.service.SalaryService;
 import com.bootdo.activiti.utils.ActivitiUtils;
 import com.bootdo.common.config.Constant;
