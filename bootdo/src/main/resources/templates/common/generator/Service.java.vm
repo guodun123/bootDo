@@ -12,18 +12,47 @@ import java.util.Map;
  * @date ${datetime}
  */
 public interface ${className}Service {
-	
+    /**
+    * id查询
+	* @return
+	*/
 	${className}DO getById(${pk.attrType} ${pk.attrname});
-	
+
+    /**
+    * 按条件查询
+	* @param map
+	* @return
+	*/
 	List<${className}DO> listByMap(Map<String, Object> map);
-	
+
+    /**
+    * 配合listByMap 做到分页
+	* @param map
+	* @return
+	*/
 	int count(Map<String, Object> map);
-	
+
+    /**
+    * 插入方法
+	* @return
+	*/
 	int save(${className}DO ${classname});
-	
+
+    /**
+    * 更新方法
+	* @return
+	*/
 	int update(${className}DO ${classname});
-	
+
+    /**
+    * 单条物理删除
+	* @return
+	*/
 	int remove(${pk.attrType} ${pk.attrname});
 
+    /**
+    * 批量物理删除
+	* @return
+	*/
 	int batchRemove(${pk.attrType}[] ${pk.attrname}s);
 }

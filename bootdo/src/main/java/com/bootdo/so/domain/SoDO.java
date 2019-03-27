@@ -1,5 +1,6 @@
 package com.bootdo.so.domain;
 
+import com.bootdo.common.domain.BaseDO;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,9 +19,7 @@ import java.util.Date;
  */
 @Getter
 @Setter
-public class SoDO implements Serializable {
-	//
-	private Integer id;
+public class SoDO extends BaseDO {
 	//
 	private String code;
 	//

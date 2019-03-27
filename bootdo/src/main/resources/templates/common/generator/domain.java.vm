@@ -3,18 +3,15 @@ package ${package}.domain;
 import com.bootdo.common.domain.BaseDO;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.io.Serializable;
 import java.util.Date;
 
 #if(${hasBigDecimal})
 import java.math.BigDecimal;
 #end
 
-
 /**
  * ${comments}
- * 
+ * 表名：${tableName}
  * @author ${author}
  * @date ${datetime}
  */
