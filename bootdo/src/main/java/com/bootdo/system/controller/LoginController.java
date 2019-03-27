@@ -78,11 +78,9 @@ public class LoginController extends BaseController {
         try {
             //从session中获取随机数
             String random = (String) request.getSession().getAttribute(RandomValidateCodeUtil.RANDOMCODEKEY);
-            if (StringUtils.isBlank(verify)) {
-                return R.error("请输入验证码");
-            }
-            if (random.equals(verify)) {
-            } else {
+            //验证码取出一次后失效
+            request.getSession().setAttribute(RandomValidateCodeUtil.RANDOMCODEKEY,"");
+            if (StringUtils.isNotBlank(random) && !random.equals(verify)) {
                 return R.error("请输入正确的验证码");
             }
         } catch (Exception e) {

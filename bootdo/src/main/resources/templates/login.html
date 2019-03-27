@@ -127,7 +127,8 @@
         validateRule();
         $("body").keydown(keyDownLogon);
         // getVerify($("#imgVerify"));
-        $("#imgVerify").click()
+        //获取验证吗
+        //$("#imgVerify").click()
     });
 
     $.validator.setDefaults({
@@ -147,6 +148,7 @@
                     });
                     parent.location.href = '/index';
                 } else {
+                    $("#imgVerify").click()
                     $("#verifyNo").show();
                     layer.msg(r.msg);
                 }

@@ -12,8 +12,8 @@
         from ${tableName}
         <where>
             #foreach($column in $columns)
-                <if test="$column.attrname != null and $column.attrname.trim() != ''">and $column.columnName =
-                    #{$column.attrname}
+                <if test="$column.attrname != null and $column.attrname.trim() != ''">
+                    and $column.columnName = #{$column.attrname}
                 </if>
             #end
         </where>
@@ -34,8 +34,8 @@
         select count(*) from ${tableName}
         <where>
             #foreach($column in $columns)
-                <if test="$column.attrname != null and $column.attrname.trim() != ''">and $column.columnName =
-                    #{$column.attrname}
+                <if test="$column.attrname != null and $column.attrname.trim() != ''">
+                    and $column.columnName = #{$column.attrname}
                 </if>
             #end
         </where>
@@ -69,9 +69,10 @@
         <set>
             #foreach($column in $columns)
                 #if($column.columnName != $pk.columnName)
-                    <if test="$column.attrname != null and  $column.attrname.trim() != ''">`$column.columnName` =
-                        #{$column.attrname
-                        }#if($velocityCount != $columns.size()), #end</if>
+                    <if test="$column.attrname != null and  $column.attrname.trim() != ''">
+                        `$column.columnName` = #{$column.attrname }#if($velocityCount != $columns.size()),
+                    #end
+                    </if>
                 #end
             #end
         </set>
