@@ -152,7 +152,10 @@ public class GenUtils {
             tableName = tableName.substring(tableName.indexOf("_") + 1);
         }
         if (StringUtils.isNotBlank(tablePrefix)) {
-            tableName = tableName.replace(tablePrefix, "");
+            String[] str = tablePrefix.split(",");
+            for (int i = 0; i < str.length; i++) {
+                tableName = tableName.replace(str[i], "");
+            }
         }
 
         return columnToJava(tableName);
