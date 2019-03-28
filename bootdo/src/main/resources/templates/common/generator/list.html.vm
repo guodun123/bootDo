@@ -9,10 +9,10 @@
 				<div class="ibox-body">
 					<div class="fixed-table-toolbar">
 						<div class="columns pull-left">
-							<button shiro:hasPermission="${pathName}:${classname}:add" type="button" class="btn  btn-primary" onclick="add()">
+							<button shiro:hasPermission="${classname}:add" type="button" class="btn  btn-primary" onclick="add()">
 								<i class="fa fa-plus" aria-hidden="true"></i>添加
 							</button>
-							<button shiro:hasPermission="${pathName}:${classname}:batchRemove" type="button" class="btn  btn-danger"
+							<button shiro:hasPermission="${classname}:batchRemove" type="button" class="btn  btn-danger"
 								onclick="batchRemove()">
 								<i class="fa fa-trash" aria-hidden="true"></i>删除
 							</button>
@@ -39,17 +39,17 @@
 				var s_resetPwd_h = 'hidden';
 			</script>
 		</div>
-		<div shiro:hasPermission="${pathName}:${classname}:edit">
+		<div shiro:hasPermission="${classname}:edit">
 			<script type="text/javascript">
 				s_edit_h = '';
 			</script>
 		</div>
-		<div shiro:hasPermission="${pathName}:${classname}:remove">
+		<div shiro:hasPermission="${classname}:remove">
 			<script type="text/javascript">
 				var s_remove_h = '';
 			</script>
 		</div>
-		<div shiro:hasPermission="${pathName}:${classname}:resetPwd">
+		<div shiro:hasPermission="${classname}:resetPwd">
 			<script type="text/javascript">
 				var s_resetPwd_h = '';
 			</script>

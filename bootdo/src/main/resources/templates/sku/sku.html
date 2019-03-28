@@ -9,10 +9,10 @@
 				<div class="ibox-body">
 					<div class="fixed-table-toolbar">
 						<div class="columns pull-left">
-							<button shiro:hasPermission="sku:sku:add" type="button" class="btn  btn-primary" onclick="add()">
+							<button shiro:hasPermission="sku:add" type="button" class="btn  btn-primary" onclick="add()">
 								<i class="fa fa-plus" aria-hidden="true"></i>添加
 							</button>
-							<button shiro:hasPermission="sku:sku:batchRemove" type="button" class="btn  btn-danger"
+							<button shiro:hasPermission="sku:batchRemove" type="button" class="btn  btn-danger"
 								onclick="batchRemove()">
 								<i class="fa fa-trash" aria-hidden="true"></i>删除
 							</button>
@@ -36,22 +36,16 @@
 			<script type="text/javascript">
 				var s_edit_h = 'hidden';
 				var s_remove_h = 'hidden';
-				var s_resetPwd_h = 'hidden';
 			</script>
 		</div>
-		<div shiro:hasPermission="sku:sku:edit">
+		<div shiro:hasPermission="sku:edit">
 			<script type="text/javascript">
-				s_edit_h = '';
+                var s_edit_h = '';
 			</script>
 		</div>
-		<div shiro:hasPermission="sku:sku:remove">
+		<div shiro:hasPermission="sku:remove">
 			<script type="text/javascript">
-				var s_remove_h = '';
-			</script>
-		</div>
-		<div shiro:hasPermission="sku:sku:resetPwd">
-			<script type="text/javascript">
-				var s_resetPwd_h = '';
+                var s_remove_h = '';
 			</script>
 		</div>
 	</div>
