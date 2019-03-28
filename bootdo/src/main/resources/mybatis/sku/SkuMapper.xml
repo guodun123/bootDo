@@ -8,7 +8,7 @@
         <result column="sku_name" property="name" jdbcType="VARCHAR"/>
         <result column="sku_code" property="code" jdbcType="VARCHAR"/>
         <result column="sku_ean13" property="ean13" jdbcType="VARCHAR"/>
-        <result column="sku_create_time" property="createTime" jdbcType="VARCHAR"/>
+        <result column="sku_create_time" property="createTime" jdbcType="TIMESTAMP"/>
     </resultMap>
 
     <sql id="Base_Column_List">

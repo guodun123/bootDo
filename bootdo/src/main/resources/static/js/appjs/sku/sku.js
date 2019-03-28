@@ -49,23 +49,24 @@ function load() {
 								},
 																{
 									field : 'id', 
-									title : '' 
+									title : '',
+                                   visible:false
 								},
 																{
-									field : 'name', 
-									title : '' 
+									field : 'name',
+									title : '商品名称'
 								},
 																{
-									field : 'code', 
-									title : '' 
+									field : 'code',
+									title : '商品编码'
 								},
 																{
-									field : 'ean13', 
-									title : '' 
+									field : 'ean13',
+									title : '条码'
 								},
 																{
-									field : 'createTime', 
-									title : '' 
+									field : 'createTime',
+									title : '创建时间'
 								},
 																{
 									title : '操作',

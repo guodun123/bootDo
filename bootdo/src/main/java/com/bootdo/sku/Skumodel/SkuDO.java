@@ -4,6 +4,8 @@ import com.bootdo.common.model.BaseDO;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Date;
+
 
 /**
  * 商品
@@ -24,5 +26,5 @@ public class SkuDO extends BaseDO {
 	//
 	private String ean13;
 	//
-	private String createTime;
+	private Date createTime;
 }
