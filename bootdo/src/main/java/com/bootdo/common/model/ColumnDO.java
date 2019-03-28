@@ -10,6 +10,8 @@ public class ColumnDO {
 	private String columnName;
 	// 列名类型
 	private String dataType;
+	// 列名类型
+	private String dataTypeCapital ;
 	// 列名备注
 	private String comments;
 
@@ -78,6 +80,14 @@ public class ColumnDO {
 		this.extra = extra;
 	}
 
+	public String getDataTypeCapital() {
+		return dataTypeCapital;
+	}
+
+	public void setDataTypeCapital(String dataTypeCapital) {
+		this.dataTypeCapital = dataTypeCapital;
+	}
+
 	@Override
 	public String toString() {
 		return "ColumnDO{" +
@@ -88,6 +98,7 @@ public class ColumnDO {
 				", attrname='" + attrname + '\'' +
 				", attrType='" + attrType + '\'' +
 				", extra='" + extra + '\'' +
+				", dataTypeCapital='" + dataTypeCapital + '\'' +
 				'}';
 	}
 }

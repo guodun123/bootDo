@@ -72,7 +72,11 @@ public class GenUtils {
             columnDO.setDataType(column.get("dataType"));
             columnDO.setComments(column.get("columnComment"));
             columnDO.setExtra(column.get("extra"));
-
+            if ("int".equalsIgnoreCase(columnDO.getDataType())){
+                columnDO.setDataTypeCapital(JdbcType.INTEGER.getValue());
+            }else {
+                columnDO.setDataTypeCapital(columnDO.getDataType().toUpperCase());
+            }
             //列名转换成Java属性名
             String attrName = columnToJava(columnDO.getColumnName());
             columnDO.setAttrName(attrName);

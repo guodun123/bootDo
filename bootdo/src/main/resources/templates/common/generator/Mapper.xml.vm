@@ -5,16 +5,16 @@
     <resultMap id="BaseResultMap" type="${package}.model.${className}DO">
 #foreach($column in $columns)
     #if($column.columnName == $pk.columnName)
-    <id column="${classname}_$pk.columnName" property="${pk.attrname}" jdbcType="$column.dataType"/>
+    <id column="${classname}_$pk.columnName" property="${pk.attrname}" jdbcType="$column.dataTypeCapital"/>
     #end
     #if($column.columnName != $pk.columnName)
-    <result column="${classname}_$column.columnName" property="$column.attrname" jdbcType="$column.dataType"/>
+    <result column="${classname}_$column.columnName" property="$column.attrname" jdbcType="$column.dataTypeCapital"/>
     #end
 #end
     </resultMap>
 
     <sql id="Base_Column_List">
-        #foreach($column in $columns)`${classname}.$column.columnName  ${classname}_$column.columnName`#if($velocityCount != $columns.size()),#end#end
+        #foreach($column in $columns)`${classname}.$column.columnName`  ${classname}_$column.columnName #if($velocityCount != $columns.size()),#end#end
     </sql>
     <select id="getById" resultType="BaseResultMap">
 		select  <include refid="Base_Column_List"/>
