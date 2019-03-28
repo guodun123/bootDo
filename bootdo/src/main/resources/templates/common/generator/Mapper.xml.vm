@@ -2,27 +2,36 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="${package}.dao.${className}Dao">
+    <resultMap id="BaseResultMap" type="${package}.model.${className}DO">
+#foreach($column in $columns)
+    #if($column.columnName == $pk.columnName)
+    <id column="${classname}_$pk.columnName" property="${pk.attrname}" jdbcType="$column.dataType"/>
+    #end
+    #if($column.columnName != $pk.columnName)
+    <result column="${classname}_$column.columnName" property="$column.attrname" jdbcType="$column.dataType"/>
+    #end
+#end
+    </resultMap>
 
-    <select id="get" resultType="${package}.model.${className}DO">
-		select #foreach($column in $columns)`$column.columnName`#if($velocityCount != $columns.size()),#end#end from ${tableName} where ${pk.columnName} = #{value}
+    <sql id="Base_Column_List">
+        #foreach($column in $columns)`${classname}.$column.columnName  ${classname}_$column.columnName`#if($velocityCount != $columns.size()),#end#end
+    </sql>
+    <select id="getById" resultType="BaseResultMap">
+		select  <include refid="Base_Column_List"/>
+		from ${tableName} ${classname}
+		where ${pk.columnName} = #{value}
 	</select>
 
-    <select id="listByMap" resultType="${package}.model.${className}DO">
-        select #foreach($column in $columns)`$column.columnName`#if($velocityCount != $columns.size()),#end#end
-        from ${tableName}
-        <where>
-            #foreach($column in $columns)
-                <if test="$column.attrname != null and $column.attrname.trim() != ''">
-                    and $column.columnName = #{$column.attrname}
-                </if>
-            #end
-        </where>
+    <select id="listByMap" resultType="BaseResultMap">
+        select <include refid="Base_Column_List"/>
+        from ${tableName} ${classname}
+        <include refid="queryCondition"/>
         <choose>
             <when test="sort != null and sort.trim() != ''">
-                order by ${sort} ${order}
+                order by ${classname}.${sort} ${order}
             </when>
             <otherwise>
-                order by ${pk.columnName} desc
+                order by ${classname}.${pk.columnName} desc
             </otherwise>
         </choose>
         <if test="offset != null and limit != null">
@@ -31,16 +40,19 @@
     </select>
 
     <select id="count" resultType="int">
-        select count(*) from ${tableName}
+        select count(*) from ${tableName} ${classname}
+        <include refid="queryCondition"/>
+    </select>
+
+    <sql id="queryCondition">
         <where>
             #foreach($column in $columns)
                 <if test="$column.attrname != null and $column.attrname.trim() != ''">
-                    and $column.columnName = #{$column.attrname}
+                    and ${classname}.$column.columnName = #{$column.attrname}
                 </if>
             #end
         </where>
-    </select>
-
+    </sql>
     <insert id="insert" parameterType="${package}.model.${className}DO"#if($pk.extra == 'auto_increment')
             useGeneratedKeys="true" keyProperty="$pk.attrname"#end>
         insert into ${tableName}
