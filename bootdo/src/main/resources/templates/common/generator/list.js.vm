@@ -1,5 +1,5 @@
 
-var prefix = "/${pathName}/${classname}"
+var prefix = "/${classname}"
 $(function() {
 	load();
 });
