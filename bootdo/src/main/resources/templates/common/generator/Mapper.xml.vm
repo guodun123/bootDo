@@ -14,7 +14,7 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        #foreach($column in $columns)`${classname}.$column.columnName`  ${classname}_$column.columnName #if($velocityCount != $columns.size()),#end#end
+        #foreach($column in $columns)${classname}.`$column.columnName`  ${classname}_$column.columnName #if($velocityCount != $columns.size()),#end#end
     </sql>
     <select id="getById" resultType="BaseResultMap">
 		select  <include refid="Base_Column_List"/>
