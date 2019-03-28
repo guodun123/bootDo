@@ -3,27 +3,29 @@
 
 <mapper namespace="${package}.dao.${className}Dao">
     <resultMap id="BaseResultMap" type="${package}.model.${className}DO">
-#foreach($column in $columns)
-    #if($column.columnName == $pk.columnName)
-    <id column="${classname}_$pk.columnName" property="${pk.attrname}" jdbcType="$column.dataTypeCapital"/>
-    #end
-    #if($column.columnName != $pk.columnName)
-    <result column="${classname}_$column.columnName" property="$column.attrname" jdbcType="$column.dataTypeCapital"/>
-    #end
-#end
+        #foreach($column in $columns)
+            #if($column.columnName == $pk.columnName)
+                <id column="${classname}_$pk.columnName" property="${pk.attrname}" jdbcType="$column.dataTypeCapital"/>
+            #else
+                <result column="${classname}_$column.columnName" property="$column.attrname"
+                        jdbcType="$column.dataTypeCapital"/>
+            #end
+        #end
     </resultMap>
 
     <sql id="Base_Column_List">
         #foreach($column in $columns)${classname}.`$column.columnName`  ${classname}_$column.columnName #if($velocityCount != $columns.size()),#end#end
     </sql>
     <select id="getById" resultType="BaseResultMap">
-		select  <include refid="Base_Column_List"/>
-		from ${tableName} ${classname}
-		where ${pk.columnName} = #{value}
-	</select>
+        select
+        <include refid="Base_Column_List"/>
+        from ${tableName} ${classname}
+        where ${pk.columnName} = #{value}
+    </select>
 
     <select id="listByMap" resultType="BaseResultMap">
-        select <include refid="Base_Column_List"/>
+        select
+        <include refid="Base_Column_List"/>
         from ${tableName} ${classname}
         <include refid="queryCondition"/>
         <choose>
@@ -47,9 +49,13 @@
     <sql id="queryCondition">
         <where>
             #foreach($column in $columns)
-                <if test="$column.attrname != null and $column.attrname.trim() != ''">
-                    and ${classname}.$column.columnName = #{$column.attrname}
-                </if>
+                #if("varchar" == $column.dataType)
+                    <if test="$column.attrname != null and $column.attrname.trim() != ''">
+                #else
+                <if test="$column.attrname != null">
+                #end
+                and ${classname}.$column.columnName = #{$column.attrname}
+            </if>
             #end
         </where>
     </sql>
@@ -59,18 +65,26 @@
         <trim prefix="(" suffix=")" suffixOverrides=",">
             #foreach($column in $columns)
                 #if($column.columnName != $pk.columnName || $pk.extra != 'auto_increment')
-                    <if test="$column.attrname != null and $column.attrname.trim() != ''">
-                        `$column.columnName`#if($velocityCount != $columns.size()), #end
-                    </if>
+                    #if("varchar" == $column.dataType)
+                        <if test="$column.attrname != null and $column.attrname.trim() != ''">
+                    #else
+                    <if test="$column.attrname != null">
+                    #end
+                    `$column.columnName`#if($velocityCount != $columns.size()), #end
+                </if>
                 #end
             #end
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             #foreach($column in $columns)
                 #if($column.columnName != $pk.columnName || $pk.extra != 'auto_increment')
-                    <if test="$column.attrname != null and $column.attrname.trim() != ''">
-                        #{$column.attrname}#if($velocityCount != $columns.size()), #end
-                    </if>
+                    #if("varchar" == $column.dataType)
+                        <if test="$column.attrname != null and $column.attrname.trim() != ''">
+                    #else
+                    <if test="$column.attrname != null">
+                    #end
+                    #{$column.attrname}#if($velocityCount != $columns.size()), #end
+                </if>
                 #end
             #end
         </trim>
@@ -81,10 +95,14 @@
         <set>
             #foreach($column in $columns)
                 #if($column.columnName != $pk.columnName)
-                    <if test="$column.attrname != null and  $column.attrname.trim() != ''">
-                        `$column.columnName` = #{$column.attrname }#if($velocityCount != $columns.size()),
+                    #if("varchar" == $column.dataType)
+                        <if test="$column.attrname != null and  $column.attrname.trim() != ''">
+                    #else
+                    <if test="$column.attrname != null">
                     #end
-                    </if>
+                    `$column.columnName` = #{$column.attrname }#if($velocityCount != $columns.size()),
+                #end
+                </if>
                 #end
             #end
         </set>
