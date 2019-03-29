@@ -6,7 +6,7 @@
     <groupId>com.bootdo</groupId>
     <artifactId>bootdo</artifactId>
     <version>2.0.0</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <name>bootdo</name>
     <description>Demo project for Spring Boot</description>
@@ -242,7 +242,7 @@
             <version>1.9.2</version>
         </dependency>
 
-       <!-- war包部署需要-->
+       <!-- war包部署需要 去掉 内置tomcat依赖 方法一-->
         <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -254,6 +254,7 @@
                 </exclusion>
             </exclusions>
         </dependency>-->
+        <!--方法二-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
@@ -276,6 +277,7 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>firstDemo</finalName>
     </build>
     <!--<repositories>-->
     <!--<repository>-->
