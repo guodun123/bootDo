@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.so.dao.SoDao">
+    <resultMap id="BaseResultMap" type="com.bootdo.so.model.SoDO">
+        <id column="so_id" property="id" jdbcType="INTEGER"/>
+        <result column="so_code" property="code"
+                jdbcType="VARCHAR"/>
+        <result column="so_phone" property="phone"
+                jdbcType="VARCHAR"/>
+        <result column="so_address" property="address"
+                jdbcType="VARCHAR"/>
+        <result column="so_receiver" property="receiver"
+                jdbcType="VARCHAR"/>
+        <result column="so_express_no" property="expressNo"
+                jdbcType="VARCHAR"/>
+        <result column="so_ceate_time" property="ceateTime"
+                jdbcType="TIMESTAMP"/>
+        <result column="so_express_amount" property="expressAmount"
+                jdbcType="DECIMAL"/>
+        <result column="so_order_amount" property="orderAmount"
+                jdbcType="DECIMAL"/>
+        <result column="so_pay_way" property="payWay"
+                jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        so.`id`  so_id ,so.`code`  so_code ,so.`phone`  so_phone ,so.`address`  so_address ,so.`receiver`  so_receiver ,so.`express_no`  so_express_no ,so.`ceate_time`  so_ceate_time ,so.`express_amount`  so_express_amount ,so.`order_amount`  so_order_amount ,so.`pay_way`  so_pay_way     </sql>
+    <select id="getById" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from doc_so so
+        where id = #{value}
+    </select>
+
+    <select id="listByMap" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from doc_so so
+        <include refid="queryCondition"/>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by so.${sort} ${order}
+            </when>
+            <otherwise>
+                order by so.id desc
+            </otherwise>
+        </choose>
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="count" resultType="int">
+        select count(*) from doc_so so
+        <include refid="queryCondition"/>
+    </select>
+
+    <sql id="queryCondition">
+        <where>
+            <if test="id != null">
+                and so.id = #{id}
+            </if>
+            <if test="code != null and code != ''">
+                and so.code = #{code}
+            </if>
+            <if test="phone != null and phone != ''">
+                and so.phone = #{phone}
+            </if>
+            <if test="address != null and address != ''">
+                and so.address = #{address}
+            </if>
+            <if test="receiver != null and receiver != ''">
+                and so.receiver = #{receiver}
+            </if>
+            <if test="expressNo != null and expressNo != ''">
+                and so.express_no = #{expressNo}
+            </if>
+            <if test="ceateTime != null">
+                and so.ceate_time = #{ceateTime}
+            </if>
+            <if test="expressAmount != null">
+                and so.express_amount = #{expressAmount}
+            </if>
+            <if test="orderAmount != null">
+                and so.order_amount = #{orderAmount}
+            </if>
+            <if test="payWay != null">
+                and so.pay_way = #{payWay}
+            </if>
+        </where>
+    </sql>
+    <insert id="insert" parameterType="com.bootdo.so.model.SoDO" useGeneratedKeys="true" keyProperty="id">
+        insert into doc_so
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="code != null and code != ''">
+                `code`,
+            </if>
+            <if test="phone != null and phone != ''">
+                `phone`,
+            </if>
+            <if test="address != null and address != ''">
+                `address`,
+            </if>
+            <if test="receiver != null and receiver != ''">
+                `receiver`,
+            </if>
+            <if test="expressNo != null and expressNo != ''">
+                `express_no`,
+            </if>
+            <if test="ceateTime != null">
+                `ceate_time`,
+            </if>
+            <if test="expressAmount != null">
+                `express_amount`,
+            </if>
+            <if test="orderAmount != null">
+                `order_amount`,
+            </if>
+            <if test="payWay != null">
+                `pay_way`
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="code != null and code != ''">
+                #{code},
+            </if>
+            <if test="phone != null and phone != ''">
+                #{phone},
+            </if>
+            <if test="address != null and address != ''">
+                #{address},
+            </if>
+            <if test="receiver != null and receiver != ''">
+                #{receiver},
+            </if>
+            <if test="expressNo != null and expressNo != ''">
+                #{expressNo},
+            </if>
+            <if test="ceateTime != null">
+                #{ceateTime},
+            </if>
+            <if test="expressAmount != null">
+                #{expressAmount},
+            </if>
+            <if test="orderAmount != null">
+                #{orderAmount},
+            </if>
+            <if test="payWay != null">
+                #{payWay}
+            </if>
+        </trim>
+    </insert>
+
+    <update id="update" parameterType="com.bootdo.so.model.SoDO">
+        update doc_so
+        <set>
+            <if test="code != null and  code != ''">
+                `code` = #{code },
+            </if>
+            <if test="phone != null and  phone != ''">
+                `phone` = #{phone },
+            </if>
+            <if test="address != null and  address != ''">
+                `address` = #{address },
+            </if>
+            <if test="receiver != null and  receiver != ''">
+                `receiver` = #{receiver },
+            </if>
+            <if test="expressNo != null and  expressNo != ''">
+                `express_no` = #{expressNo },
+            </if>
+            <if test="ceateTime != null">
+                `ceate_time` = #{ceateTime },
+            </if>
+            <if test="expressAmount != null">
+                `express_amount` = #{expressAmount },
+            </if>
+            <if test="orderAmount != null">
+                `order_amount` = #{orderAmount },
+            </if>
+            <if test="payWay != null">
+                `pay_way` = #{payWay }
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="batchRemove">
+        delete from doc_so where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

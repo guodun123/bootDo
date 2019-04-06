@@ -74,6 +74,8 @@ public class GenUtils {
             columnDO.setExtra(column.get("extra"));
             if ("int".equalsIgnoreCase(columnDO.getDataType())){
                 columnDO.setDataTypeCapital(JdbcType.INTEGER.getValue());
+            }else if ("DATETIME".equalsIgnoreCase(columnDO.getDataType())){
+                columnDO.setDataTypeCapital(JdbcType.TIMESTAMP.getValue());
             }else {
                 columnDO.setDataTypeCapital(columnDO.getDataType().toUpperCase());
             }

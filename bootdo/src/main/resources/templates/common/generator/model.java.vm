@@ -3,8 +3,10 @@ package ${package}.model;
 import com.bootdo.common.model.BaseDO;
 import lombok.Getter;
 import lombok.Setter;
+import java.util.*;
 
 #if(${hasBigDecimal})
+import java.math.BigDecimal;
 #end
 
 /**
