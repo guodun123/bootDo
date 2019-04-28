@@ -28,24 +28,6 @@ spring:
     type: ehcache
     ehcache:
       config: classpath:config/ehcache.xml
-  freemarker:
-    check-template-location: true
-    # \u8BBE\u7F6E\u6A21\u677F\u540E\u7F00\u540D
-    suffix: .ftl
-    # \u8BBE\u7F6E\u6587\u6863\u7C7B\u578B
-    content-type: text/html
-    # \u8BBE\u7F6E\u9875\u9762\u7F16\u7801\u683C\u5F0F
-    charset: UTF-8
-    # \u8BBE\u7F6E\u9875\u9762\u7F13\u5B58
-    cache: false
-    # \u8BBE\u7F6Eftl\u6587\u4EF6\u8DEF\u5F84
-    template-loader-path:  classpath:/templates
-    request-context-attribute: request
-    expose-request-attributes: true
-    expose-session-attributes: true
-    #classic_compatible
-    settings:
-      classic_compatible: true
 mybatis:
   configuration:
     map-underscore-to-camel-case: true

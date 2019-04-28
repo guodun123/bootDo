@@ -25,7 +25,6 @@
         <mybatisplus-spring-boot-starter.version>1.0.4</mybatisplus-spring-boot-starter.version>
         <velocity.version>1.7</velocity.version>
         <activiti.version>5.22.0</activiti.version>
-        <pandas.version>1.0.1</pandas.version>
     </properties>
 
     <dependencies>
@@ -235,19 +234,6 @@
             <version>2.9.0</version>
         </dependency>
 
-        <!--pandas-->
-        <dependency>
-            <groupId>com.daxia.pandas</groupId>
-            <artifactId>web</artifactId>
-            <version>${pandas.version}</version>
-            <type>war</type>
-        </dependency>
-        <dependency>
-            <groupId>com.daxia.pandas</groupId>
-            <artifactId>web</artifactId>
-            <version>${pandas.version}</version>
-            <classifier>classes</classifier>
-        </dependency>
         <!-- xss过滤组件 -->
         <dependency>
             <groupId>org.jsoup</groupId>
