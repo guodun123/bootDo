@@ -284,6 +284,12 @@
             <artifactId>commons-lang</artifactId>
             <version>2.6</version>
         </dependency>
+
+       <!-- <dependency>
+            <groupId>com.gd</groupId>
+            <artifactId>boot-freemarker</artifactId>
+            <version>0.0.1</version>
+        </dependency>-->
     </dependencies>
     <build>
         <plugins>
