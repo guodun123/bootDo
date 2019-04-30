@@ -58,6 +58,12 @@ public class SoController {
 	    return "so/so_add";
 	}
 
+	@GetMapping("/skuSelect")
+	@RequiresPermissions("so:add")
+	String skuSelect(){
+	    return "so/sku_select";
+	}
+
 	@GetMapping("/edit/{id}")
 	@RequiresPermissions("so:edit")
 	String edit(@PathVariable("id") Integer id,Model model){
@@ -119,5 +125,6 @@ public class SoController {
 		soService.batchRemove(ids);
 		return R.ok();
 	}
-	
+
+
 }

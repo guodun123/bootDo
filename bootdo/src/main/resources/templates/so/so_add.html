@@ -114,7 +114,8 @@
     var a = 0;
 
     function addSku() {
-        $("#soItemTable").find(".no-records-found").remove();
+        skuSelect();
+       /* $("#soItemTable").find(".no-records-found").remove();
         var count = $('#soItemTable').bootstrapTable('getData').length;
         $("#soItemTable").bootstrapTable('insertRow', {
             index: count,
@@ -125,11 +126,21 @@
                 op: "<a href='javascript:;' class='btn btn-xs red' onclick='removeItem(" + (count + 1) + ")' title='删除'><span class='glyphicon glyphicon-remove'>&nbsp;&nbsp;删除 </span></a>"
             }
         });
-        a++;
+        a++;*/
     }
 
     function removeItem(row) {
         $('#soItemTable').bootstrapTable('remove', {field: 'num', values: [parseInt(row)]})
+    }
+    function skuSelect() {
+        layer.open({
+            type: 2,
+            title: '选择商品',
+            maxmin: true,
+            shadeClose: false, // 点击遮罩关闭层
+            area: ['1200px', '500px'],
+            content: 'skuSelect' // iframe的url
+        });
     }
 </script>
 <script>

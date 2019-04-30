@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content ">
+    <div class="col-sm-12">
+        <div class="ibox">
+            <div class="ibox-body">
+                <div class="fixed-table-toolbar">
+                    <div class="columns pull-right">
+                        <button class="btn btn-success" onclick="reLoadSkuTable()">查询</button>
+                    </div>
+                    <div class="columns pull-right col-md-2 nopadding">
+                        <input id="searchName" type="text" class="form-control"
+                               placeholder="">
+                    </div>
+                </div>
+                <table id="skuTable" data-mobile-responsive="true">
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="include :: footer"></div>
+<script src="/js/layui.js"></script>
+<script src="/js/layui.js"></script>
+<script type="text/javascript">
+    function reLoadSkuTable() {
+        $('#skuTable').bootstrapTable(
+            {
+                method: 'get', // 服务器数据的请求方式 get or post
+                url: "/sku/list", // 服务器数据的加载地址
+                iconSize: 'outline',
+                toolbar: '#exampleToolbar',
+                striped: true, // 设置为true会有隔行变色效果
+                dataType: "json", // 服务器返回的数据类型
+                pagination: true, // 设置为true会在底部显示分页条
+                singleSelect: false, // 设置为true将禁止多选
+                pageSize: 10, // 如果设置了分页，每页数据条数
+                pageNumber: 1, // 如果设置了分布，首页页码
+                showColumns: false, // 是否显示内容下拉框（选择显示的列）
+                sidePagination: "server", // 设置在哪里进行分页，可选值为"client" 或者 "server"
+                queryParams: function (params) {
+                    return {
+                        limit: params.limit,
+                        offset: params.offset
+                    };
+                },
+                columns: [
+                    {
+                        field: 'num',
+                        title: '序号',//标题  可不加
+                        formatter: function (value, row, index) {
+                            return index + 1;
+                        }
+                    },
+                    {
+                        checkbox: true
+                    },
+                    {
+                        field: 'skuCode',
+                        title: '单据编码'
+                    },
+                    {
+                        field: 'skuName',
+                        title: '收件人'
+                    },
+                    {
+                        field: 'op',
+                        title: '操作'
+                    }
+                ]
+            }
+        );
+    }
+</script>
+</body>
+</html>
