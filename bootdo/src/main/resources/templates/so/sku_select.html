@@ -10,13 +10,14 @@
                 <div class="fixed-table-toolbar">
                     <div class="columns pull-right">
                         <button class="btn btn-success" onclick="reLoadSkuTable()">查询</button>
+                        <button class="btn btn-success" onclick="getSelect()">查询11</button>
                     </div>
                     <div class="columns pull-right col-md-2 nopadding">
                         <input id="searchName" type="text" class="form-control"
                                placeholder="">
                     </div>
                 </div>
-                <table id="skuTable" data-mobile-responsive="true">
+                <table id="skuSelectTable" data-mobile-responsive="true">
                 </table>
             </div>
         </div>
@@ -27,7 +28,7 @@
 <script src="/js/layui.js"></script>
 <script type="text/javascript">
     function reLoadSkuTable() {
-        $('#skuTable').bootstrapTable(
+        $('#skuSelectTable').bootstrapTable(
             {
                 method: 'get', // 服务器数据的请求方式 get or post
                 url: "/sku/list", // 服务器数据的加载地址
@@ -41,6 +42,7 @@
                 pageNumber: 1, // 如果设置了分布，首页页码
                 showColumns: false, // 是否显示内容下拉框（选择显示的列）
                 sidePagination: "server", // 设置在哪里进行分页，可选值为"client" 或者 "server"
+                uniqueId: 'index',
                 queryParams: function (params) {
                     return {
                         limit: params.limit,
@@ -49,22 +51,15 @@
                 },
                 columns: [
                     {
-                        field: 'num',
-                        title: '序号',//标题  可不加
-                        formatter: function (value, row, index) {
-                            return index + 1;
-                        }
-                    },
-                    {
                         checkbox: true
                     },
                     {
-                        field: 'skuCode',
-                        title: '单据编码'
+                        field: 'code',
+                        title: '商品编码'
                     },
                     {
-                        field: 'skuName',
-                        title: '收件人'
+                        field: 'name',
+                        title: '名称'
                     },
                     {
                         field: 'op',
@@ -73,6 +68,13 @@
                 ]
             }
         );
+    }
+
+    function getSelect() {
+        var rows = $.map($('#skuSelectTable').bootstrapTable('getSelections'), function (row) {
+            return row;
+        });
+        return rows;
     }
 </script>
 </body>

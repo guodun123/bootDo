@@ -115,23 +115,25 @@
 
     function addSku() {
         skuSelect();
-       /* $("#soItemTable").find(".no-records-found").remove();
-        var count = $('#soItemTable').bootstrapTable('getData').length;
-        $("#soItemTable").bootstrapTable('insertRow', {
-            index: count,
-            row: {
-                num:count+1,
-                skuCode: a,
-                skuName: "",
-                op: "<a href='javascript:;' class='btn btn-xs red' onclick='removeItem(" + (count + 1) + ")' title='删除'><span class='glyphicon glyphicon-remove'>&nbsp;&nbsp;删除 </span></a>"
-            }
-        });
-        a++;*/
+        /* $("#soItemTable").find(".no-records-found").remove();
+         var count = $('#soItemTable').bootstrapTable('getData').length;
+         $("#soItemTable").bootstrapTable('insertRow', {
+             index: count,
+             row: {
+                 num:count+1,
+                 skuCode: a,
+                 skuName: "",
+                 op: "<a href='javascript:;' class='btn btn-xs red' onclick='removeItem(" + (count + 1) + ")' title='删除'><span class='glyphicon glyphicon-remove'>&nbsp;&nbsp;删除 </span></a>"
+             }
+         });
+         a++;*/
     }
 
     function removeItem(row) {
-        $('#soItemTable').bootstrapTable('remove', {field: 'num', values: [parseInt(row)]})
+        $("#soItemTable").bootstrapTable('removeByUniqueId',[parseInt(row)] );
+        //$('#soItemTable').bootstrapTable('remove', {field: 'num', values: [parseInt(row)]})
     }
+
     function skuSelect() {
         layer.open({
             type: 2,
@@ -139,7 +141,12 @@
             maxmin: true,
             shadeClose: false, // 点击遮罩关闭层
             area: ['1200px', '500px'],
-            content: 'skuSelect' // iframe的url
+            content: 'skuSelect',// iframe的url.
+            btn: ['确定'],
+            yes: function (index, layero) {
+                var obj = $(layero).find("iframe")[0].contentWindow;
+                var rows = obj.getSelect();
+            }
         });
     }
 </script>
