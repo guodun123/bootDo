@@ -74,6 +74,7 @@ function load() {
                 //search : true, // 是否显示搜索框
                 showColumns: false, // 是否显示内容下拉框（选择显示的列）
                 sidePagination: "server", // 设置在哪里进行分页，可选值为"client" 或者 "server"
+                uniqueId: 'index',
                 queryParams: function (params) {
                     return {
                         //说明：传入后台的参数包括offset开始索引，limit步长，sort排序列，order：desc或者,以及所有列的键值对
@@ -91,12 +92,12 @@ function load() {
                 // 返回false将会终止请求
                 columns: [
                     {
-                        field: 'num',
-                        title: '序号',//标题  可不加
-                        formatter: function (value, row, index) {return index + 1;}
+                        checkbox: true
                     },
                     {
-                        checkbox: true
+                        field: 'index',
+                        title: '序号',//标题  可不加
+                        formatter: function (value, row, index) {return index + 1;}
                     },
                     {
                         field: 'skuCode',
