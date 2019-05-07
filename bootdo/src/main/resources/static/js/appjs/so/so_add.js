@@ -36,18 +36,8 @@ function save() {
 
 function validateRule() {
     var icon = "<i class='fa fa-times-circle'></i> ";
-    $("#signupForm").validate({
-        rules: {
-            name: {
-                required: true
-            }
-        },
-        messages: {
-            name: {
-                required: icon + "请输入姓名"
-            }
-        }
-    })
+    $("#signupForm").validate();
+    $("#soItemTable").validate();
 }
 
 function load() {
@@ -63,7 +53,7 @@ function load() {
                 toolbar: '#exampleToolbar',
                 striped: true, // 设置为true会有隔行变色效果
                 dataType: "json", // 服务器返回的数据类型
-                pagination: true, // 设置为true会在底部显示分页条
+                pagination: false, // 设置为true会在底部显示分页条
                 // queryParamsType : "limit",
                 // //设置为limit则会发送符合RESTFull格式的参数
                 singleSelect: false, // 设置为true将禁止多选
@@ -101,11 +91,32 @@ function load() {
                     },
                     {
                         field: 'skuCode',
-                        title: '单据编码'
+                        title: '商品编码'
                     },
                     {
                         field: 'skuName',
-                        title: '收件人'
+                        title: '商品名称'
+                    },
+                    {
+                        field: 'qty',
+                        title: '商品数量'/*,
+                        formatter: function (value, row, index) {return " <div class='col-sm-6'>" +
+                            " <input id='qty_"+index + 1+"' name='qty' class='form-control' type='text'>" +
+                            "</div>";}*/
+                    },
+                    {
+                        field: 'price',
+                        title: '商品单价'/*,
+                        formatter: function (value, row, index) {return " <div class='col-sm-6'>" +
+                            " <input id='price_"+index + 1+"' name='price' class='form-control' type='text'>" +
+                            "</div>";}*/
+                    },
+                    {
+                        field: 'amount',
+                        title: '金额'/*,
+                        formatter: function (value, row, index) {return " <div class='col-sm-6'>" +
+                            " <input id='amount"+index + 1+"' name='amount' class='form-control' type='text'>" +
+                            "</div>";}*/
                     },
                     {
                         field: 'op',

@@ -55,29 +55,29 @@
                         <div class="form-group">
                             <label class="col-sm-1 control-label">联系电话：</label>
                             <div class="col-sm-3">
-                                <input id="phone" name="phone" class="form-control" type="text">
+                                <input id="phone" name="phone" class="form-control" type="text" required>
                             </div>
                             <label class="col-sm-1 control-label">收货地址：</label>
                             <div class="col-sm-3">
-                                <input id="address" name="address" class="form-control" type="text">
+                                <input id="address" name="address" class="form-control" type="text" required>
                             </div>
                             <label class="col-sm-1 control-label">收件人：</label>
                             <div class="col-sm-3">
-                                <input id="receiver" name="receiver" class="form-control" type="text">
+                                <input id="receiver" name="receiver" class="form-control" type="text" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-1 control-label">快递号：</label>
                             <div class="col-sm-3">
-                                <input id="expressNo" name="expressNo" class="form-control" type="text">
+                                <input id="expressNo" name="expressNo" class="form-control" type="text" required>
                             </div>
                             <label class="col-sm-1 control-label">快递费：</label>
                             <div class="col-sm-3">
-                                <input id="expressAmount" name="expressAmount" class="form-control" type="text">
+                                <input id="expressAmount" name="expressAmount" class="form-control" type="text" required>
                             </div>
                             <label class="col-sm-1 control-label">支付方式：</label>
                             <div class="col-sm-3">
-                                <input id="payWay" name="payWay" class="form-control" type="text">
+                                <input id="payWay" name="payWay" class="form-control" type="text" required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -85,20 +85,20 @@
                                 <button type="submit" class="btn btn-primary">保存</button>
                             </div>
                         </div>
+
+                        <div class="columns pull-left">
+                            <button shiro:hasPermission="so:add" type="button" class="btn  btn-primary" onclick="addSku()">
+                                <i class="fa fa-plus" aria-hidden="true"></i>添加
+                            </button>
+                            <button shiro:hasPermission="so:batchRemove" type="button" class="btn  btn-danger">
+                                <i class="fa fa-trash" aria-hidden="true"></i>删除
+                            </button>
+                        </div>
+                        <div>
+                            <table id="soItemTable">
+                            </table>
+                        </div>
                     </form>
-                </div>
-                <div class="columns pull-left">
-                    <button shiro:hasPermission="so:add" type="button" class="btn  btn-primary" onclick="addSku()">
-                        <i class="fa fa-plus" aria-hidden="true"></i>添加
-                    </button>
-                    <button shiro:hasPermission="so:batchRemove" type="button" class="btn  btn-danger"
-                    <!-- onclick="batchRemove()"-->>
-                    <i class="fa fa-trash" aria-hidden="true"></i>删除
-                    </button>
-                </div>
-                <div>
-                    <table id="soItemTable">
-                    </table>
                 </div>
             </div>
         </div>
@@ -143,6 +143,15 @@
                             index:count+1,
                             skuCode: row.code,
                             skuName: row.name,
+                            qty: " <div class='col-sm-10'>" +
+                                " <input id='qty_"+count +"'  onchange='calcAmount(this,"+count+");' class='form-control numberCheck' number='true' type='text'>" +
+                                "</div>",
+                            price : " <div class='col-sm-10'>" +
+                                " <input id='price_"+count +"'  onchange='calcAmount(this,"+count+");' class='form-control numberCheck' number='true' type='text'>" +
+                                "</div>",
+                            amount: " <div class='col-sm-10'>" +
+                                " <input id='amount"+count +"'  onchange='calcAmount(this,"+count+");' class='form-control numberCheck' number='true' type='text'>" +
+                                "</div>",
                             op: "<a href='javascript:;' class='btn btn-xs red' onclick='removeItem(" + (count + 1) + ")' title='删除'><span class='glyphicon glyphicon-remove'>&nbsp;&nbsp;删除 </span></a>"
                         }
                     });
@@ -151,8 +160,11 @@
             }
         });
     }
-</script>
-<script>
+    function calcAmount(row,index) {
+        var qty = $("#qty_"+index).val();
+        var price = $("#price_"+index).val();
+        var amount = $("#amount_"+index).val();
+    }
 </script>
 </body>
 </html>
