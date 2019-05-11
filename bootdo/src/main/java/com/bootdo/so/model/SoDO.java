@@ -38,4 +38,5 @@ public class SoDO extends BaseDO {
 	private BigDecimal orderAmount;
 	//支付方式
 	private Integer payWay;
+	private String itemStr;
 }

@@ -9,7 +9,20 @@ $.validator.setDefaults({
 });
 
 function save() {
-    $.ajax({
+    var toItemStr = [];
+    $.map($('#soItemTable').bootstrapTable('getData'), function (row) {
+        debugger
+        var item = {};
+        item.skuCode =row.skuCode;
+        item.skuName =row.skuName;
+        item.qty =$("#qty_"+(row.index-1)).val();
+        item.price =$("#price_"+(row.index-1)).val();
+        item.amount =$("#amount_"+(row.index-1)).val();
+        toItemStr.push(item);
+        return row
+
+    });
+    /*$.ajax({
         cache: true,
         type: "POST",
         url: "/so/save",
@@ -30,7 +43,7 @@ function save() {
             }
 
         }
-    });
+    });*/
 
 }
 
@@ -86,7 +99,9 @@ function load() {
                     {
                         field: 'index',
                         title: '序号',//标题  可不加
-                        formatter: function (value, row, index) {return index + 1;}
+                        formatter: function (value, row, index) {
+                            return index + 1;
+                        }
                     },
                     {
                         field: 'skuCode',
