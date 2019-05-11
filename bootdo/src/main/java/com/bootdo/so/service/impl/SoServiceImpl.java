@@ -3,6 +3,7 @@ package com.bootdo.so.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -34,9 +35,13 @@ public class SoServiceImpl implements SoService {
 	
 	@Override
 	public int save(SoDO so){
+		return this.insert(so);
+	}
+
+	private int insert(SoDO so){
+		so.setCeateTime(new Date());
 		return soDao.insert(so);
 	}
-	
 	@Override
 	public int update(SoDO so){
 		return soDao.update(so);
