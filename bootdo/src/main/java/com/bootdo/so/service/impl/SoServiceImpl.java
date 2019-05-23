@@ -1,6 +1,7 @@
 package com.bootdo.so.service.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.bootdo.common.utils.CommonUtil;
 import com.bootdo.common.utils.StringUtils;
 import com.bootdo.so.dao.SoItemDao;
 import com.bootdo.so.model.SoItemDO;
@@ -41,7 +42,10 @@ public class SoServiceImpl implements SoService {
     @Override
     public int save(SoDO so) {
         this.insert(so);
+        String code = CommonUtil.getDocCode("XSD", 0, so.getId().toString());
         String itemStr = so.getItemStr();
+        so.setCode(code);
+        this.update(so);
         if (StringUtils.isEmpty(itemStr)) {
             return 1;
         }
