@@ -72,7 +72,7 @@ function load() {
                     },
                     {
                         field: 'ceateTime',
-                        title: '船舰时间'
+                        title: '创建时间'
                     },
                     {
                         field: 'expressAmount',
