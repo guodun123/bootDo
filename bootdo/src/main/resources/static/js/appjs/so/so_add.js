@@ -11,18 +11,19 @@ $.validator.setDefaults({
 function save() {
     var toItemStr = [];
     $.map($('#soItemTable').bootstrapTable('getData'), function (row) {
-        debugger
         var item = {};
         item.skuCode =row.skuCode;
         item.skuName =row.skuName;
         item.qty =$("#qty_"+(row.index-1)).val();
         item.price =$("#price_"+(row.index-1)).val();
         item.amount =$("#amount_"+(row.index-1)).val();
+        item.skuId =row.skuId;
         toItemStr.push(item);
         return row
 
     });
-    /*$.ajax({
+    $("#itemStr").val(JSON.stringify( toItemStr ));
+    $.ajax({
         cache: true,
         type: "POST",
         url: "/so/save",
@@ -43,7 +44,7 @@ function save() {
             }
 
         }
-    });*/
+    });
 
 }
 
@@ -131,6 +132,11 @@ function load() {
                         formatter: function (value, row, index) {return " <div class='col-sm-6'>" +
                             " <input id='amount"+index + 1+"' name='amount' class='form-control' type='text'>" +
                             "</div>";}*/
+                    },
+                    {
+                        field : 'skuId',
+                        title : '',
+                        visible:false
                     },
                     {
                         field: 'op',
