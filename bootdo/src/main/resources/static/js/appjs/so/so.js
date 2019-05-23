@@ -116,8 +116,39 @@ function add() {
         title: '增加',
         maxmin: true,
         shadeClose: false, // 点击遮罩关闭层
-        area: ["95%","95%"],
-        content: prefix + '/add' // iframe的url
+        area: ["95%", "95%"],
+        content: prefix + '/add', // iframe的url
+        success: function (layero, index) {
+            var childBody = layer.getChildFrame('body', index);
+            loadType(childBody);
+        }
+    });
+}
+
+function loadType(childBody) {
+    var html = "";
+    $.ajax({
+        url: '/common/dict/list/payment_way',
+        success: function (data, layero) {
+            //加载数据
+            for (var i = 0; i < data.length; i++) {
+                html += '<option value="' + data[i].value + '">' + data[i].name + '</option>'
+            }
+            $(childBody).find(".chosen-select").append(html);
+            $(childBody).find(".chosen-select").chosen({
+                maxHeight: 200
+            });
+            //点击事件
+            $(childBody).find('.chosen-select').on('change', function (e, params) {
+                console.log(params.selected);
+                var opt = {
+                    query: {
+                        type: params.selected,
+                    }
+                };
+                $('#soItemTable').bootstrapTable('refresh', opt);
+            });
+        }
     });
 }
 
@@ -127,8 +158,12 @@ function edit(id) {
         title: '编辑',
         maxmin: true,
         shadeClose: false, // 点击遮罩关闭层
-        area: ["95%","95%"],
-        content: prefix + '/edit/' + id // iframe的url
+        area: ["95%", "95%"],
+        content: prefix + '/edit/' + id, // iframe的url
+        success: function (layero, index) {
+            var childBody = layer.getChildFrame('body', index);
+            loadType(childBody);
+        }
     });
 }
 
@@ -188,3 +223,4 @@ function batchRemove() {
 
     });
 }
+

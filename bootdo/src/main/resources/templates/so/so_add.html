@@ -138,6 +138,7 @@
             content: 'skuSelect',// iframe的url.
             btn: ['确定'],
             yes: function (index, layero) {
+                debugger;
                 layer.close(index);
                 var obj = $(layero).find("iframe")[0].contentWindow;
                 var rows = obj.getSelect();

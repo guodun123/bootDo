@@ -1,7 +1,7 @@
 $().ready(function () {
     validateRule();
     load();
-    loadType();
+    parent.loadType();
 });
 $.validator.setDefaults({
     submitHandler: function () {
@@ -53,33 +53,6 @@ function validateRule() {
     var icon = "<i class='fa fa-times-circle'></i> ";
     $("#signupForm").validate();
 }
-function loadType(){
-    var html = "";
-    $.ajax({
-        url : '/common/dict/list/payment_way',
-        success : function(data) {
-            //加载数据
-            for (var i = 0; i < data.length; i++) {
-                html += '<option value="' + data[i].value + '">' + data[i].name + '</option>'
-            }
-            $(".chosen-select").append(html);
-            $(".chosen-select").chosen({
-                maxHeight : 200
-            });
-            //点击事件
-            $('.chosen-select').on('change', function(e, params) {
-                console.log(params.selected);
-                var opt = {
-                    query : {
-                        type : params.selected,
-                    }
-                }
-                $('#soItemTable').bootstrapTable('refresh', opt);
-            });
-        }
-    });
-}
-
 function load() {
     $('#soItemTable')
         .bootstrapTable(
