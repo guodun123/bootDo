@@ -51,8 +51,13 @@
                             </div>
                             <label class="col-sm-1 control-label">支付方式：</label>
                             <div class="col-sm-3">
-                                <input id="payWay" name="payWay" th:value="${so.payWay}" class="form-control"
-                                       type="text">
+                                <select data-placeholder="--选择类别--" name="type" id="type"
+                                        class="form-control chosen-select" tabindex="2">
+                                    <option value="">-- 选择类别 --</option>
+                                    <option th:each="payWatDict : ${payWatDicts}" th:value="${so.payWay}"
+                                            th:text="${payWatDict.name}" th:if="${payWatDict.remarks ==checked}"
+                                            th:selected="selected"></option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">

@@ -1,5 +1,6 @@
 package com.bootdo.oa.service.impl;
 
+import com.bootdo.common.utils.CommonEnum;
 import com.bootdo.system.model.UserDO;
 import com.bootdo.system.service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,7 @@ public class NotifyServiceImpl implements NotifyService {
     @Override
     public NotifyDO get(Long id) {
         NotifyDO rDO = notifyDao.get(id);
-        rDO.setType(dictService.getName("oa_notify_type", rDO.getType()));
+        rDO.setType(dictService.getName(CommonEnum.dictEnum.NOTIFY_TYPE, rDO.getType()));
         return rDO;
     }
 
@@ -49,7 +50,7 @@ public class NotifyServiceImpl implements NotifyService {
     public List<NotifyDO> list(Map<String, Object> map) {
         List<NotifyDO> notifys = notifyDao.list(map);
         for (NotifyDO notifyDO : notifys) {
-            notifyDO.setType(dictService.getName("oa_notify_type", notifyDO.getType()));
+            notifyDO.setType(dictService.getName(CommonEnum.dictEnum.NOTIFY_TYPE, notifyDO.getType()));
         }
         return notifys;
     }
@@ -77,7 +78,7 @@ public class NotifyServiceImpl implements NotifyService {
         }
         recordDao.batchSave(records);
         //给在线用户发送通知
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(1,1,0, TimeUnit.MILLISECONDS,new LinkedBlockingDeque<>());
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(1, 1, 0, TimeUnit.MILLISECONDS, new LinkedBlockingDeque<>());
         executor.execute(new Runnable() {
             @Override
             public void run() {

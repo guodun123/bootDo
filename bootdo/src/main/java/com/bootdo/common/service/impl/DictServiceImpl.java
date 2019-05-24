@@ -106,4 +106,25 @@ public class DictServiceImpl implements DictService {
         return dictDao.list(param);
     }
 
+    @Override
+    public List<DictDO> getDicts(String dictType, String selectValue) {
+        List<DictDO> dictDOS = this.listByType(dictType);
+        for (DictDO dictDO : dictDOS) {
+            if (selectValue.equals(dictDO.getValue())) {
+                dictDO.setRemarks("checked");
+            }
+        }
+        return dictDOS;
+    }
+
+    @Override
+    public DictDO getDictSelected(String dictType, String selectValue) {
+        List<DictDO> dictDOS = this.listByType(dictType);
+        for (DictDO dictDO : dictDOS) {
+            if (selectValue.equals(dictDO.getValue())) {
+                return dictDO;
+            }
+        }
+        return null;
+    }
 }
