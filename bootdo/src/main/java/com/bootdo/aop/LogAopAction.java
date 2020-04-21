@@ -6,7 +6,7 @@ import org.aspectj.lang.annotation.*;
 @Aspect
 public class LogAopAction {
     //配置接入点,如果不知道怎么配置,可以百度一下规则
-    @Pointcut("@annotation(com.bootdo.aop.Log)")
+    @Pointcut("@annotation(com.bootdo.aop.LogT)")
     private void anyMethod(){
 
         System.out.println("log记录------------------------");
