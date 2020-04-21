@@ -3,6 +3,7 @@ package com.bootdo.sku.controller;
 import java.util.List;
 import java.util.Map;
 
+import com.bootdo.aop.Log;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -43,6 +44,7 @@ public class SkuController {
 	@ResponseBody
 	@GetMapping("/list")
 	@RequiresPermissions("sku:list")
+	@Log
 	public PageUtils list(@RequestParam Map<String, Object> params){
 		//查询列表数据
         Query query = new Query(params);
