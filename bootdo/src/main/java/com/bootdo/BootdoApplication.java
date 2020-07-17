@@ -8,6 +8,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.WebApplicationInitializer;
@@ -20,6 +21,7 @@ import org.springframework.web.WebApplicationInitializer;
 @MapperScan("com.bootdo.*.dao")
 @SpringBootApplication
 @EnableCaching
+@ComponentScan("com.bootdo.*")
 public class BootdoApplication extends SpringBootServletInitializer implements WebApplicationInitializer {
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {

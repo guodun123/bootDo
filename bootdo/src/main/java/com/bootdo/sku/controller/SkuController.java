@@ -55,6 +55,7 @@ public class SkuController {
 	
 	@GetMapping("/add")
 	@RequiresPermissions("sku:add")
+	@LogT
 	String add(){
 	    return "sku/sku_add";
 	}
